@@ -1,5 +1,5 @@
 //Send inn for skjema 
-document.getElementById('myForm').addEventListener('submit', lagreBokmerke);
+document.getElementById('mittSkjema').addEventListener('submit', lagreBokmerke);
 
 //Lagre bokmerke
 function lagreBokmerke(e){
@@ -18,7 +18,7 @@ function lagreBokmerke(e){
 
   /*
     // Local Storage Test
-    localStorage.setItem('test', 'Hello World');
+    localStorage.setItem('test', 'Hei verdn');
     console.log(localStorage.getItem('test'));
     localStorage.removeItem('test');
     console.log(localStorage.getItem('test'));
@@ -28,7 +28,7 @@ function lagreBokmerke(e){
   if(localStorage.getItem('bokmerker') === null){
     //Initaliser array
     var bokmerker = [];
-    //Legg til array
+    //Legg til i array
     bokmerker.push(bokmerke);
     //Sett til localStorage
     localStorage.setItem('bokmerker', JSON.stringify(bokmerker));
@@ -42,12 +42,12 @@ function lagreBokmerke(e){
   }
 
   //Nullstill skjema
-  document.getElementById('myForm').reset();
+  document.getElementById('mittSkjema').reset();
 
-  //Gjenhet bokmerker
+  //Gjenhent bokmerker
   hentBokmerker();
 
-  //Forhindre fra å sende inn
+  //Forhindre fra å sende inn data
   e.preventDefault();
 }
 
@@ -73,7 +73,6 @@ function slettBokmerke(url){
 function hentBokmerker(){
   //Hent bokmerker fra localStorage
   var bokmerker = JSON.parse(localStorage.getItem('bokmerker'));
-  // Get output id
   //Hent output id
   var bokmerkeResultater = document.getElementById('bokmerkeResultater');
 
@@ -85,8 +84,8 @@ function hentBokmerker(){
 
     bokmerkeResultater.innerHTML += '<div class="well">'+
                                   '<h3>'+name+
-                                  ' <a class="btn btn-default" target="_blank" href="'+leggTilURL(url)+'">Visit</a> ' +
-                                  ' <a onclick="slettBokmerke(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+                                  ' <a class="btn btn-default" target="_blank" href="'+leggTilURL(url)+'">Besøk</a> ' +
+                                  ' <a onclick="slettBokmerke(\''+url+'\')" class="btn btn-danger" href="#">Slett</a> ' +
                                   '</h3>'+
                                   '</div>';
   }
